@@ -1,0 +1,49 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "http://example.com/example.json",
+  "type": "object",
+  "title": "The root schema",
+  "description": "The root schema comprises the entire JSON document.",
+
+  "properties": {
+    "image": {
+      "$id": "#/properties/image",
+      "type": "object",
+      "title": "VTEX image",
+      "description": "The VTEX image schema",
+      "required": [
+        "props"
+      ],
+      "properties": {
+        "props": {
+          "$id": "#/properties/image/properties/props",
+          "type": "object",
+          "title": "Props schema",
+          "description": "The VTEX props schema",
+          "required": [
+            "src"
+          ],
+          "properties": {
+            "src": {
+              "$id": "#/properties/image/properties/props/properties/src",
+              "type": "string",
+              "title": "The src schema",
+              "description": "src schema",
+              "default": ""
+            },
+            "blockClass": {
+              "$id": "#/properties/image/properties/props/properties/blockClass",
+              "type": "string",
+              "title": "The blockClass schema",
+              "description": "The blockClass schema",
+              "default": ""
+            }
+          },
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}
