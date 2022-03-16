@@ -11,6 +11,7 @@
         "props"
       ],
       "properties": {
+        "title": { "$ref": "#/$defs/title" },
         "props": {
           "$id": "#/properties/image/properties/props",
           "type": "object",
@@ -86,6 +87,80 @@
         }
       },
       "additionalProperties": true
+    },
+
+    "link": {
+      "$id": "#/properties/link",
+      "type": "object",
+      "required": [ "props" ],
+      "properties": {
+        "title": { "$ref": "#/$defs/title" },
+        "props": {
+          "$id": "#/properties/link/properties/props",
+          "type": "object",
+          "required": [ "href" ],
+          "properties": {
+            "label": {
+              "$id": "#/properties/link/properties/props/properties/label",
+              "type": "string",
+              "description": "Link text."
+            },
+            "href": {
+              "$id": "#/properties/link/properties/props/properties/href",
+              "type": "string",
+              "description": "Link URL.",
+              "default": "#"
+            },
+            "scrollTo": {
+              "$id": "#/properties/link/properties/props/properties/scrollTo",
+              "type": "string",
+              "description": "Element anchor to scroll after navigation. (E.g. \"#footer\")"
+            },
+            "target": {
+              "$id": "#/properties/link/properties/props/properties/target",
+              "type": "string",
+              "enum": ["_blank", "_self", "_parent", "_top"],
+              "description": "Where to display the linked URL. This prop works the same way as the target from HTML <a> element. Since the anchor element's target default is _self, this prop will be set to _self if it's undefined."
+            },
+            "displayMode": {
+              "$id": "#/properties/link/properties/props/properties/displayMode",
+              "type": "string",
+              "enum": ["anchor", "button"],
+              "description": "How the link should be displayed. Possible values are: anchor (displays a normal link with no styles) or button (displays a button that can be customized using the buttonProps prop."
+            },
+            "buttonProps": {
+              "$id": "#/properties/link/properties/props/properties/buttonProps",
+              "type": "object",
+              "description": "How the link button should be displayed. Use this prop only when the displayMode prop is set as button.",
+              "properties": {
+                "variant": {
+                  "$id": "#/properties/link/properties/props/properties/buttonProps/properties/variant",
+                  "type": "string",
+                  "enum": ["primary", "secondary"],
+                  "description": "Link button visual proeminence."
+                },
+                "size": {
+                  "$id": "#/properties/link/properties/props/properties/buttonProps/properties/size",
+                  "type": "string",
+                  "enum": ["small", "regular", "large"],
+                  "description": "Link button size."
+                }
+              }
+            },
+            "escapeLinkRegex": {
+              "$id": "#/properties/link/properties/props/properties/escapeLinkRegex",
+              "type": "string",
+              "description": "RegExp, with global match, used to remove special characters within product specifications."
+            },
+            "rel": {
+              "$id": "#/properties/link/properties/props/properties/rel",
+              "type": "string",
+              "description": "This prop specifies the relationship between the current document and the linked document (for better SEO). This prop works the same way as the rel attribute from <a>, the HTML anchor element."
+            },
+            "blockClass": { "$ref": "#/$defs/blockClass" }
+          }
+        }
+      }
     }
   },
   "additionalProperties": true,
@@ -95,9 +170,9 @@
 
   "$defs": {
     "blockClass": {
-      "$id": "#/properties/image/properties/props/properties/blockClass",
       "type": ["string", "array"],
       "items": { "type": "string" }
-    }
+    },
+    "title": { "type": "string" }
   }
 }
