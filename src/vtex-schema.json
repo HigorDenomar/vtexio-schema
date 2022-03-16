@@ -2,15 +2,11 @@
   "$schema": "http://json-schema.org/draft-07/schema",
   "$id": "http://example.com/example.json",
   "type": "object",
-  "title": "The root schema",
-  "description": "The root schema comprises the entire JSON document.",
 
   "properties": {
     "image": {
       "$id": "#/properties/image",
       "type": "object",
-      "title": "VTEX image",
-      "description": "The VTEX image schema",
       "required": [
         "props"
       ],
@@ -18,26 +14,73 @@
         "props": {
           "$id": "#/properties/image/properties/props",
           "type": "object",
-          "title": "Props schema",
-          "description": "The VTEX props schema",
           "required": [
             "src"
           ],
           "properties": {
+            "alt": {
+              "$id": "#/properties/image/properties/props/properties/alt",
+              "type": "string",
+              "description": "Alternate text for the image."
+            },
+            "link": {
+              "$id": "#/properties/image/properties/props/properties/link",
+              "type": "object",
+              "description": "The image hyperlink.",
+              "properties": {
+                "attributeNofollow": {
+                  "$id": "#/properties/image/properties/props/properties/link/properties/attributeNofollow",
+                  "type": "boolean",
+                  "description": "Guides the search engine not to track the link of the page indicated by the tag. If true sets rel=noFollow attribute to the link.",
+                  "default": true
+                },
+                "newTab": {
+                  "$id": "#/properties/image/properties/props/properties/link/properties/newTab",
+                  "type": "boolean",
+                  "description": "If true opens a new tab when you click on the image.",
+                  "default": true
+                },
+                "url": {
+                  "$id": "#/properties/image/properties/props/properties/link/properties/url",
+                  "type": "string",
+                  "description": "Sets the URL to which the user will be redirected by clicking on the image."
+                }
+              },
+              "required": [
+                "url"
+              ]
+            },
+            "maxHeight": {
+              "$id": "#/properties/image/properties/props/properties/maxHeight",
+              "type": "number",
+              "description": "Max height of the image."
+            },
+            "maxWidth": {
+              "$id": "#/properties/image/properties/props/properties/maxWidth",
+              "type": "number",
+              "description": "Max width of the image."
+            },
+            "sizes": {
+              "$id": "#/properties/image/properties/props/properties/sizes",
+              "type": "string",
+              "description": "Different image sizes for each page layout."
+            },
             "src": {
               "$id": "#/properties/image/properties/props/properties/src",
               "type": "string",
-              "title": "The src schema",
-              "description": "src schema",
-              "default": ""
+              "description": "Source URL of the image."
             },
-            "blockClass": {
-              "$id": "#/properties/image/properties/props/properties/blockClass",
+            "srcSet": {
+              "$id": "#/properties/image/properties/props/properties/srcSet",
               "type": "string",
-              "title": "The blockClass schema",
-              "description": "The blockClass schema",
-              "default": ""
-            }
+              "description": "URL of the image to use in different situations."
+            },
+            "title": {
+              "$id": "#/properties/image/properties/props/properties/title",
+              "type": "string",
+              "description": "Image title displayed on hover"
+            },
+            "blockClass": { "$ref": "#/$defs/blockClass" }
           },
           "additionalProperties": true
         }
@@ -45,5 +88,16 @@
       "additionalProperties": true
     }
   },
-  "additionalProperties": true
+  "additionalProperties": true,
+
+
+
+
+  "$defs": {
+    "blockClass": {
+      "$id": "#/properties/image/properties/props/properties/blockClass",
+      "type": ["string", "array"],
+      "items": { "type": "string" }
+    }
+  }
 }
