@@ -174,7 +174,8 @@
   "additionalProperties": true,
 
   "patternProperties": {
-    "^image#[A-Za-z0-9.-]": { "$ref": "#/properties/image" }
+    "^image#[A-Za-z0-9.-]": { "$ref": "#/properties/image" },
+    "^link#[A-Za-z0-9.-]": { "$ref": "#/properties/link" }
   },
 
 
