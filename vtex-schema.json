@@ -99,6 +99,9 @@
           "$id": "#/properties/link/properties/props",
           "type": "object",
           "required": [ "href" ],
+          "dependencies": {
+            "buttonProps": [ "displayMode" ]
+          },
           "properties": {
             "label": {
               "$id": "#/properties/link/properties/props/properties/label",
@@ -161,10 +164,18 @@
           }
         }
       }
-    }
+    },
+
+    "responsive-layout.desktop": { "$ref": "#/$defs/responsive-layout" },
+    "responsive-layout.mobile": { "$ref": "#/$defs/responsive-layout" },
+    "responsive-layout.tablet": { "$ref": "#/$defs/responsive-layout" },
+    "responsive-layout.phone": { "$ref": "#/$defs/responsive-layout" }
   },
   "additionalProperties": true,
 
+  "patternProperties": {
+    "^image#[A-Za-z0-9.-]": { "$ref": "#/properties/image" }
+  },
 
 
 
@@ -173,6 +184,16 @@
       "type": ["string", "array"],
       "items": { "type": "string" }
     },
-    "title": { "type": "string" }
+    "title": { "type": "string" },
+    "responsive-layout": {
+      "type": "object",
+      "required": [ "children" ],
+      "properties": {
+        "children": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    }
   }
 }
