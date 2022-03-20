@@ -1,0 +1,80 @@
+{
+	/*** RICH TEXT ***/
+	"VTEX Rich Text": {
+		"scope": "jsonc,json",
+		"prefix": "rich-text",
+		"body": [
+			"\"rich-text#${2}\": {",
+			"  \"title\": \"${3}\",",
+			"  \"props\": {",
+			"    \"text\": \"${4}\",",
+			"    \"blockClass\": \"${2}\"",
+			"  }",
+			"}${1:,}",
+		],
+		"description": "A VTEX text component"
+	},
+
+
+	/*** FLEX LAYOUT ***/
+	"VTEX Flex Layout": {
+		"scope": "jsonc,json",
+		"prefix": "flex-layout",
+		"body": [
+			"\"flex-layout.${2|row,col|}#${3}\": {",
+			"  \"children\": [${4}],",
+			"  \"props\": {",
+			"    \"blockClass\": \"${3}\"",
+			"  }",
+			"}${1:,}",
+		],
+		"description": "A VTEX flex-layout component"
+	},
+
+
+	/*** LINK ***/
+	"VTEX Link": {
+		"scope": "jsonc,json",
+		"prefix": "link",
+		"body": [
+			"\"link#${2}\": {",
+			"  \"title\": \"${3}\",",
+			"  \"props\": {",
+			"    \"label\": \"${4}\",",
+			"    \"href\": \"${5}\",",
+			"    \"blockClass\": \"${2}\"",
+			"  }",
+			"}${1:,}",
+		],
+		"description": "A VTEX link component"
+	},
+
+
+	/*** IMAGE ***/
+	"VTEX image": {
+		"scope": "jsonc,json",
+		"prefix": "image",
+		"body": [
+			"\"image#${2}\": {",
+			"  \"title\": \"${3}\",",
+			"  \"props\": {",
+			"    \"src\": \"${4}\",",
+			"    \"blockClass\": \"${2}\"",
+			"  }",
+			"}${1:,}",
+		],
+		"description": "A VTEX image component"
+	},
+
+	/*** RESPONSIVE LAYOUT ***/
+	"VTEX Responsive Layout": {
+		"scope": "jsonc,json",
+		"prefix": "responsive-layout",
+		"body": [
+			"\"responsive-layout.${2|desktop,mobile,tablet,phone|}#${3}\": {",
+			"  \"children\": [${4}]",
+			"}${1:,}",
+		],
+		"description": "A VTEX image component"
+	}
+}
