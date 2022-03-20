@@ -252,6 +252,203 @@
         }
       }
     },
+    "flex-layout.row#[A-Za-z0-9.-]": {
+      "type": "object",
+      "required": [
+        "children"
+      ],
+      "properties": {
+        "children": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "props": {
+          "type": "object",
+          "properties": {
+            "borderColor": {
+              "type": "string",
+              "description": "The color of the border."
+            },
+            "borderWidth": {
+              "type": "number",
+              "description": "A number or string magnitude for the bw Tachyons token to be applied to the row."
+            },
+            "border": {
+              "type": [
+                "string",
+                "array"
+              ],
+              "description": "An array to define in which sides of the row a border should be applied to (top, right, bottom, left or all).",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "top",
+                  "right",
+                  "bottom",
+                  "left"
+                ]
+              }
+            },
+            "colGap": {
+              "type": "number",
+              "description": "A number or string magnitude for the pr Tachyons token to be applied to columns inside of the flex-layout.row."
+            },
+            "colSizing": {
+              "type": "string",
+              "description": "Controls the width of the columns inside the flex-layout.row.",
+              "enum": [
+                "equal",
+                "auto"
+              ]
+            },
+            "fullWidth": {
+              "type": "boolean",
+              "description": "Whether or not the component should ocuppy all the available width from its parent."
+            },
+            "horizontalAlign": {
+              "type": "string",
+              "description": "Controls horizontal alignment for the items inside the flex-layout.row.",
+              "enum": [
+                "left",
+                "right",
+                "center"
+              ]
+            },
+
+            "marginBottom": {
+              "type": "number",
+              "description": "A number or string magnitude for the mb Tachyons token to be applied to the row."
+            },
+            "marginTop": {
+              "type": "number",
+              "description": "A number or string magnitude for the mt Tachyons token to be applied to the row."
+            },
+            "paddingBottom": {
+              "type": "number",
+              "description": "A number or string magnitude for the pb Tachyons token to be applied to the row."
+            },
+            "paddingTop": {
+              "type": "number",
+              "description": "A number or string magnitude for the pt Tachyons token to be applied to the row."
+            },
+            "preserveLayoutOnMobile": {
+              "type": "boolean",
+              "description": "Whether or not the flex-layout.row should break into a column layout on mobile."
+            },
+            "preventHorizontalStretch": {
+              "type": "boolean",
+              "description": "Prevents the row from stretching horizontally to fill its parent width."
+            },
+            "preventVerticalStretch": {
+              "type": "boolean",
+              "description": "Prevents the row from stretching vertically to fill its parent height with items-stretch token."
+            },
+            "rowGap": {
+              "type": "number",
+              "description": "A number or string magnitude for the pb Tachyons token to be applied to columns inside of the flex-layout.row."
+            },
+            "blockClass": {
+              "$ref": "#/$defs/blockClass"
+            }
+          }
+        }
+      }
+    },
+    "flex-layout.col#[A-Za-z0-9.-]": {
+      "type": "object",
+      "required": [
+        "children"
+      ],
+      "properties": {
+        "children": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "props": {
+          "type": "object",
+          "properties": {
+            "borderColor": {
+              "type": "string",
+              "description": "The color of the border."
+            },
+            "borderWidth": {
+              "type": "number",
+              "description": "A number or string magnitude for the bw Tachyons token to be applied to the row."
+            },
+            "border": {
+              "type": [
+                "string",
+                "array"
+              ],
+              "description": "An array to define in which sides of the row a border should be applied to (top, right, bottom, left or all).",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "top",
+                  "right",
+                  "bottom",
+                  "left"
+                ]
+              }
+            },
+            "horizontalAlign": {
+              "type": "string",
+              "description": "Controls horizontal alignment for the items inside the flex-layout.row.",
+              "enum": [
+                "left",
+                "right",
+                "center"
+              ]
+            },
+
+            "marginLeft": {
+              "type": "number",
+              "description": "A number or string magnitude for the mb Tachyons token to be applied to the row."
+            },
+            "marginRight": {
+              "type": "number",
+              "description": "A number or string magnitude for the mt Tachyons token to be applied to the row."
+            },
+            "paddingLeft": {
+              "type": "number",
+              "description": "A number or string magnitude for the pb Tachyons token to be applied to the row."
+            },
+            "paddingRight": {
+              "type": "number",
+              "description": "A number or string magnitude for the pt Tachyons token to be applied to the row."
+            },
+            "preventVerticalStretch": {
+              "type": "boolean",
+              "description": "Prevents the row from stretching vertically to fill its parent height with height: 100%, using height: \"auto\" instead."
+            },
+            "rowGap": {
+              "type": "number",
+              "description": "A number or string magnitude for the pb Tachyons token to be applied to rows inside of the flex-layout.col."
+            },
+            "verticalAlign": {
+              "type": "string",
+              "description": "Controls vertical alignment for the items inside the flex-layout.col.",
+              "enum": [
+                "top",
+                "middle",
+                "bottom"
+              ]
+            },
+            "width": {
+              "type": "string",
+              "description": "Sets the width of the column. Accepts either a percentage or \"grow\"."
+            },
+            "blockClass": {
+              "$ref": "#/$defs/blockClass"
+            }
+          }
+        }
+      }
+    },
     "^responsive-layout.(desktop)|(mobile)|(tablet)|(phone)#[A-Za-z0-9.-]": {
       "type": "object",
       "required": [
@@ -269,6 +466,7 @@
   },
   "$defs": {
     "blockClass": {
+      "description": "Block container class. This prop’s set value functions as a block identifier for CSS customizations.",
       "type": [
         "string",
         "array"
