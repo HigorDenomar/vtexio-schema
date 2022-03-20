@@ -3,6 +3,66 @@
   "$id": "http://example.com/example.json",
   "type": "object",
   "patternProperties": {
+    "^rich-text#[A-Za-z0-9.-]": {
+      "$id": "#/properties/rich-text",
+      "type": "object",
+      "required": [
+        "props"
+      ],
+      "properties": {
+        "props": {
+          "$id": "#/properties/rich-text/properties/props",
+          "type": "object",
+          "properties": {
+            "font": {
+              "type": [
+                "string",
+                "object"
+              ],
+              "description": "achyon token to be used as font. Default: t-body",
+              "properties": {
+                "desktop": {
+                  "type": "string"
+                },
+                "tablet": {
+                  "type": "string"
+                },
+                "mobile": {
+                  "type": "string"
+                }
+              }
+            },
+            "textColor": {
+              "type": "string",
+              "description": "Tachyon token to be used as text color. Default: c-on-base"
+            },
+            "text": {
+              "type": "string",
+              "description": "Text written in markdown language to be displayed."
+            },
+            "textAlignment": {
+              "type": "string",
+              "enum": [
+                "LEFT",
+                "CENTER",
+                "RIGHT"
+              ]
+            },
+            "textPosition": {
+              "type": "string",
+              "enum": [
+                "LEFT",
+                "CENTER",
+                "RIGHT"
+              ]
+            },
+            "blockClass": {
+              "$ref": "#/$defs/blockClass"
+            }
+          }
+        }
+      }
+    },
     "^image#[A-Za-z0-9.-]": {
       "$id": "#/properties/image",
       "type": "object",
